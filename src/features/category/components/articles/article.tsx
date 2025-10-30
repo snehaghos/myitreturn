@@ -5,6 +5,7 @@
 import { ChevronRight } from "lucide-react"
 import { Link, useParams } from "@tanstack/react-router";
 
+//(article json data(will be replaced later onm))
 const articleContent: Record<string, { title: string; content: string; updated: string }> = {
   "crypto-income-reporting": {
     title: "How can cryptocurrency income be reported?",
@@ -49,6 +50,20 @@ const articleContent: Record<string, { title: string; content: string; updated: 
       <p>Long-term capital gains rates are 0%, 15%, or 20% depending on your income level. Short-term gains are taxed at your regular income tax rate.</p>
     `,
   },
+  "document-upload": {
+    title: "Uploading Documents",
+    updated: "October 18, 2024",
+    content: `
+      <h2>How to Upload Your Tax Documents</h2>
+      <p>Securely upload your tax documents to complete your return filing process.</p>
+      
+      <h2>Supported File Types</h2>
+      <p>You can upload PDFs, images (JPG, PNG), and common document formats.</p>
+      
+      <h2>Security</h2>
+      <p>All documents are encrypted and stored securely in compliance with IRS regulations.</p>
+    `,
+  },
   "tax-basics": {
     title: "Tax Filing Basics",
     updated: "October 12, 2024",
@@ -82,7 +97,99 @@ const articleContent: Record<string, { title: string; content: string; updated: 
       </ul>
     `,
   },
+  credits: {
+    title: "Tax Credits Explained",
+    updated: "October 5, 2024",
+    content: `
+      <h2>Understanding Tax Credits</h2>
+      <p>Tax credits directly reduce the amount of tax you owe, dollar for dollar.</p>
+      
+      <h2>Common Tax Credits</h2>
+      <ul>
+        <li><strong>Earned Income Tax Credit:</strong> For low to moderate income workers</li>
+        <li><strong>Child Tax Credit:</strong> For families with qualifying children</li>
+        <li><strong>Education Credits:</strong> For college tuition and expenses</li>
+      </ul>
+    `,
+  },
+  "tax-forms": {
+    title: "Understanding Tax Forms",
+    updated: "October 20, 2024",
+    content: `
+      <h2>Common Tax Forms Explained</h2>
+      <p>Learn about the different tax forms you may need to file your return.</p>
+      
+      <h2>Form W-2</h2>
+      <p>Reports wages and taxes withheld from your employer.</p>
+      
+      <h2>Form 1099</h2>
+      <p>Reports various types of income other than wages, such as freelance income or investment earnings.</p>
+    `,
+  },
+  "irs-updates": {
+    title: "Latest IRS Updates",
+    updated: "October 25, 2024",
+    content: `
+      <h2>Recent Tax Law Changes</h2>
+      <p>Stay informed about the latest updates from the IRS and how they may affect your tax filing.</p>
+      
+      <h2>2024 Tax Year Changes</h2>
+      <p>New standard deduction amounts, updated tax brackets, and changes to retirement contribution limits.</p>
+    `,
+  },
+  "tax-planning": {
+    title: "Tax Planning Strategies",
+    updated: "October 22, 2024",
+    content: `
+      <h2>Optimize Your Tax Situation</h2>
+      <p>Strategic tax planning can help you minimize your tax liability and maximize refunds.</p>
+      
+      <h2>Year-Round Planning</h2>
+      <p>Don't wait until tax season. Plan throughout the year for better results.</p>
+    `,
+  },
+  "account-setup": {
+    title: "How do I set up my account?",
+    updated: "October 28, 2024",
+    content: `
+      <h2>Creating Your Account</h2>
+      <p>Get started with myITreturn in just a few simple steps.</p>
+      
+      <h2>Step 1: Register</h2>
+      <p>Provide your email address and create a secure password.</p>
+      
+      <h2>Step 2: Verify</h2>
+      <p>Check your email and click the verification link.</p>
+    `,
+  },
+  "password-reset": {
+    title: "How do I reset my password?",
+    updated: "October 27, 2024",
+    content: `
+      <h2>Password Recovery</h2>
+      <p>Regain access to your account quickly and securely.</p>
+      
+      <h2>Reset Process</h2>
+      <p>Click "Forgot Password" on the login page, enter your email, and follow the instructions sent to your inbox.</p>
+    `,
+  },
+  "support-contact": {
+    title: "How do I contact support?",
+    updated: "October 26, 2024",
+    content: `
+      <h2>Get Help from Our Team</h2>
+      <p>Our support team is here to assist you with any questions or issues.</p>
+      
+      <h2>Contact Methods</h2>
+      <ul>
+        <li>Email: support@myitreturn.com</li>
+        <li>Phone: 1-800-TAX-HELP</li>
+        <li>Live Chat: Available 9am-5pm EST</li>
+      </ul>
+    `,
+  },
 }
+
 
 const categoryArticles: Record<string, Array<{ id: string; title: string }>> = {
   guides: [
@@ -94,6 +201,16 @@ const categoryArticles: Record<string, Array<{ id: string; title: string }>> = {
     { id: "tax-basics", title: "Tax Filing Basics" },
     { id: "deductions", title: "Common Deductions" },
     { id: "credits", title: "Tax Credits Explained" },
+  ],
+  knowledge: [
+    { id: "tax-forms", title: "Understanding Tax Forms" },
+    { id: "irs-updates", title: "Latest IRS Updates" },
+    { id: "tax-planning", title: "Tax Planning Strategies" },
+  ],
+  faqs: [
+    { id: "account-setup", title: "How do I set up my account?" },
+    { id: "password-reset", title: "How do I reset my password?" },
+    { id: "support-contact", title: "How do I contact support?" },
   ],
 }
 
