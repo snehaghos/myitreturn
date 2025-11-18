@@ -10,12 +10,36 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SupportHelpRouteImport } from './routes/support/help'
+import { Route as AuthWelcomeRouteImport } from './routes/auth/welcome'
+import { Route as AuthLoginRouteImport } from './routes/auth/login'
+import { Route as AuthAddtaxformRouteImport } from './routes/auth/addtaxform'
 import { Route as CategoriesCategoryIdIndexRouteImport } from './routes/categories/$categoryId/index'
 import { Route as CategoriesCategoryIdArticleIdRouteImport } from './routes/categories/$categoryId/$articleId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SupportHelpRoute = SupportHelpRouteImport.update({
+  id: '/support/help',
+  path: '/support/help',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthWelcomeRoute = AuthWelcomeRouteImport.update({
+  id: '/auth/welcome',
+  path: '/auth/welcome',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthLoginRoute = AuthLoginRouteImport.update({
+  id: '/auth/login',
+  path: '/auth/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthAddtaxformRoute = AuthAddtaxformRouteImport.update({
+  id: '/auth/addtaxform',
+  path: '/auth/addtaxform',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CategoriesCategoryIdIndexRoute =
@@ -33,17 +57,29 @@ const CategoriesCategoryIdArticleIdRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth/addtaxform': typeof AuthAddtaxformRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/welcome': typeof AuthWelcomeRoute
+  '/support/help': typeof SupportHelpRoute
   '/categories/$categoryId/$articleId': typeof CategoriesCategoryIdArticleIdRoute
   '/categories/$categoryId': typeof CategoriesCategoryIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth/addtaxform': typeof AuthAddtaxformRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/welcome': typeof AuthWelcomeRoute
+  '/support/help': typeof SupportHelpRoute
   '/categories/$categoryId/$articleId': typeof CategoriesCategoryIdArticleIdRoute
   '/categories/$categoryId': typeof CategoriesCategoryIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/auth/addtaxform': typeof AuthAddtaxformRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/welcome': typeof AuthWelcomeRoute
+  '/support/help': typeof SupportHelpRoute
   '/categories/$categoryId/$articleId': typeof CategoriesCategoryIdArticleIdRoute
   '/categories/$categoryId/': typeof CategoriesCategoryIdIndexRoute
 }
@@ -51,19 +87,38 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/auth/addtaxform'
+    | '/auth/login'
+    | '/auth/welcome'
+    | '/support/help'
     | '/categories/$categoryId/$articleId'
     | '/categories/$categoryId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/categories/$categoryId/$articleId' | '/categories/$categoryId'
+  to:
+    | '/'
+    | '/auth/addtaxform'
+    | '/auth/login'
+    | '/auth/welcome'
+    | '/support/help'
+    | '/categories/$categoryId/$articleId'
+    | '/categories/$categoryId'
   id:
     | '__root__'
     | '/'
+    | '/auth/addtaxform'
+    | '/auth/login'
+    | '/auth/welcome'
+    | '/support/help'
     | '/categories/$categoryId/$articleId'
     | '/categories/$categoryId/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthAddtaxformRoute: typeof AuthAddtaxformRoute
+  AuthLoginRoute: typeof AuthLoginRoute
+  AuthWelcomeRoute: typeof AuthWelcomeRoute
+  SupportHelpRoute: typeof SupportHelpRoute
   CategoriesCategoryIdArticleIdRoute: typeof CategoriesCategoryIdArticleIdRoute
   CategoriesCategoryIdIndexRoute: typeof CategoriesCategoryIdIndexRoute
 }
@@ -75,6 +130,34 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/support/help': {
+      id: '/support/help'
+      path: '/support/help'
+      fullPath: '/support/help'
+      preLoaderRoute: typeof SupportHelpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/welcome': {
+      id: '/auth/welcome'
+      path: '/auth/welcome'
+      fullPath: '/auth/welcome'
+      preLoaderRoute: typeof AuthWelcomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/login': {
+      id: '/auth/login'
+      path: '/auth/login'
+      fullPath: '/auth/login'
+      preLoaderRoute: typeof AuthLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/addtaxform': {
+      id: '/auth/addtaxform'
+      path: '/auth/addtaxform'
+      fullPath: '/auth/addtaxform'
+      preLoaderRoute: typeof AuthAddtaxformRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/categories/$categoryId/': {
@@ -96,6 +179,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthAddtaxformRoute: AuthAddtaxformRoute,
+  AuthLoginRoute: AuthLoginRoute,
+  AuthWelcomeRoute: AuthWelcomeRoute,
+  SupportHelpRoute: SupportHelpRoute,
   CategoriesCategoryIdArticleIdRoute: CategoriesCategoryIdArticleIdRoute,
   CategoriesCategoryIdIndexRoute: CategoriesCategoryIdIndexRoute,
 }
