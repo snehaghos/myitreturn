@@ -153,7 +153,7 @@ const articleContent: Record<string, { title: string; content: string; updated: 
     updated: "October 28, 2024",
     content: `
       <h2>Creating Your Account</h2>
-      <p>Get started with myITreturn in just a few simple steps.</p>
+      <p>Get started with TaxYaar in just a few simple steps.</p>
       
       <h2>Step 1: Register</h2>
       <p>Provide your email address and create a secure password.</p>
@@ -182,7 +182,7 @@ const articleContent: Record<string, { title: string; content: string; updated: 
       
       <h2>Contact Methods</h2>
       <ul>
-        <li>Email: support@myitreturn.com</li>
+        <li>Email: support@TaxYaar.com</li>
         <li>Phone: 1-800-TAX-HELP</li>
         <li>Live Chat: Available 9am-5pm EST</li>
       </ul>

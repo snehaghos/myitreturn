@@ -1,9 +1,10 @@
 "use client"
 
-
 import { useState } from "react"
-import { Eye, EyeOff } from 'lucide-react'
+import { Eye, EyeOff } from "lucide-react"
+import { FcGoogle } from "react-icons/fc"
 import { Link, useRouter } from "@tanstack/react-router"
+import AskedQuestions from "./askedQuestions"
 
 export default function LoginPage() {
   const router = useRouter()
@@ -15,7 +16,7 @@ export default function LoginPage() {
   const handleContinue = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
-    
+
     setTimeout(() => {
       router.navigate({ to: "/auth/welcome" })
     }, 1500)
@@ -23,33 +24,17 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen bg-background">
-   
-      <header className="border-b border-border">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-4">
-          <Link to="/" className="flex items-center gap-2 w-fit">
-            <div className="w-8 h-8 rounded bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">✓</span>
-            </div>
-            <div>
-              <h1 className="font-bold text-lg text-foreground">myITreturn</h1>
-              <p className="text-xs text-muted-foreground">Plan, Save and File Taxes</p>
-            </div>
-          </Link>
-        </div>
-      </header>
-
       <div className="mx-auto max-w-md px-4 py-12 sm:px-6">
-        <h2 className="text-3xl font-bold text-foreground mb-2">Sign up to myITreturn Income tax efiling</h2>
-        <p className="text-muted-foreground mb-8">Login to myITreturn income tax return filing account</p>
+        <h2 className="text-3xl font-bold text-foreground mb-2">Sign up to TaxYaar Income tax efiling</h2>
+        <p className="text-muted-foreground mb-8">Login to TaxYaar income tax return filing account</p>
 
         <form onSubmit={handleContinue} className="space-y-6">
-          
           <button
             type="button"
-            className="w-full px-4 py-3 rounded border border-border bg-secondary hover:bg-secondary/80 transition flex items-center justify-center gap-3 text-foreground font-medium"
+            className="w-full px-4 py-3 rounded border border-border bg-blue-100 hover:bg-blue-200 transition flex items-center justify-center gap-3 text-blue-400 font-medium"
           >
-            <span>🔍</span>
-            Log in with Google
+            <FcGoogle size={20} />
+            <span>Log in with Google</span>
           </button>
 
           <div className="relative text-center">
@@ -59,7 +44,6 @@ export default function LoginPage() {
             <div className="relative bg-background px-2 text-muted-foreground text-sm">OR</div>
           </div>
 
-       
           <div>
             <label className="block text-sm font-medium text-foreground mb-2">Your email</label>
             <input
@@ -74,7 +58,7 @@ export default function LoginPage() {
           <div>
             <div className="flex items-center justify-between mb-2">
               <label className="block text-sm font-medium text-foreground">Password</label>
-              <Link to="/" className="text-primary hover:underline text-sm">
+              <Link to="/" className="text-blue-600 hover:underline text-sm">
                 Forgot Password?
               </Link>
             </div>
@@ -97,11 +81,10 @@ export default function LoginPage() {
             </div>
           </div>
 
-        
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full px-4 py-3 rounded bg-primary text-primary-foreground hover:opacity-90 transition font-medium disabled:opacity-50"
+            className="w-full px-4 py-3 rounded bg-blue-400 text-primary-foreground hover:opacity-90 transition font-medium disabled:opacity-50"
           >
             {isLoading ? "Continuing..." : "Continue"}
           </button>
@@ -114,6 +97,7 @@ export default function LoginPage() {
           </Link>
         </p>
       </div>
+      <AskedQuestions/>
     </div>
   )
 }

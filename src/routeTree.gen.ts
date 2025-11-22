@@ -12,7 +12,11 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SupportHelpRouteImport } from './routes/support/help'
 import { Route as AuthWelcomeRouteImport } from './routes/auth/welcome'
+import { Route as AuthVerifyPanRouteImport } from './routes/auth/verify-pan'
+import { Route as AuthVerifyRouteImport } from './routes/auth/verify'
+import { Route as AuthMemberRouteImport } from './routes/auth/member'
 import { Route as AuthLoginRouteImport } from './routes/auth/login'
+import { Route as AuthDashboardRouteImport } from './routes/auth/dashboard'
 import { Route as AuthAddtaxformRouteImport } from './routes/auth/addtaxform'
 import { Route as CategoriesCategoryIdIndexRouteImport } from './routes/categories/$categoryId/index'
 import { Route as CategoriesCategoryIdArticleIdRouteImport } from './routes/categories/$categoryId/$articleId'
@@ -32,9 +36,29 @@ const AuthWelcomeRoute = AuthWelcomeRouteImport.update({
   path: '/auth/welcome',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthVerifyPanRoute = AuthVerifyPanRouteImport.update({
+  id: '/auth/verify-pan',
+  path: '/auth/verify-pan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthVerifyRoute = AuthVerifyRouteImport.update({
+  id: '/auth/verify',
+  path: '/auth/verify',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthMemberRoute = AuthMemberRouteImport.update({
+  id: '/auth/member',
+  path: '/auth/member',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthLoginRoute = AuthLoginRouteImport.update({
   id: '/auth/login',
   path: '/auth/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthDashboardRoute = AuthDashboardRouteImport.update({
+  id: '/auth/dashboard',
+  path: '/auth/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthAddtaxformRoute = AuthAddtaxformRouteImport.update({
@@ -58,7 +82,11 @@ const CategoriesCategoryIdArticleIdRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth/addtaxform': typeof AuthAddtaxformRoute
+  '/auth/dashboard': typeof AuthDashboardRoute
   '/auth/login': typeof AuthLoginRoute
+  '/auth/member': typeof AuthMemberRoute
+  '/auth/verify': typeof AuthVerifyRoute
+  '/auth/verify-pan': typeof AuthVerifyPanRoute
   '/auth/welcome': typeof AuthWelcomeRoute
   '/support/help': typeof SupportHelpRoute
   '/categories/$categoryId/$articleId': typeof CategoriesCategoryIdArticleIdRoute
@@ -67,7 +95,11 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth/addtaxform': typeof AuthAddtaxformRoute
+  '/auth/dashboard': typeof AuthDashboardRoute
   '/auth/login': typeof AuthLoginRoute
+  '/auth/member': typeof AuthMemberRoute
+  '/auth/verify': typeof AuthVerifyRoute
+  '/auth/verify-pan': typeof AuthVerifyPanRoute
   '/auth/welcome': typeof AuthWelcomeRoute
   '/support/help': typeof SupportHelpRoute
   '/categories/$categoryId/$articleId': typeof CategoriesCategoryIdArticleIdRoute
@@ -77,7 +109,11 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/auth/addtaxform': typeof AuthAddtaxformRoute
+  '/auth/dashboard': typeof AuthDashboardRoute
   '/auth/login': typeof AuthLoginRoute
+  '/auth/member': typeof AuthMemberRoute
+  '/auth/verify': typeof AuthVerifyRoute
+  '/auth/verify-pan': typeof AuthVerifyPanRoute
   '/auth/welcome': typeof AuthWelcomeRoute
   '/support/help': typeof SupportHelpRoute
   '/categories/$categoryId/$articleId': typeof CategoriesCategoryIdArticleIdRoute
@@ -88,7 +124,11 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/auth/addtaxform'
+    | '/auth/dashboard'
     | '/auth/login'
+    | '/auth/member'
+    | '/auth/verify'
+    | '/auth/verify-pan'
     | '/auth/welcome'
     | '/support/help'
     | '/categories/$categoryId/$articleId'
@@ -97,7 +137,11 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/auth/addtaxform'
+    | '/auth/dashboard'
     | '/auth/login'
+    | '/auth/member'
+    | '/auth/verify'
+    | '/auth/verify-pan'
     | '/auth/welcome'
     | '/support/help'
     | '/categories/$categoryId/$articleId'
@@ -106,7 +150,11 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/auth/addtaxform'
+    | '/auth/dashboard'
     | '/auth/login'
+    | '/auth/member'
+    | '/auth/verify'
+    | '/auth/verify-pan'
     | '/auth/welcome'
     | '/support/help'
     | '/categories/$categoryId/$articleId'
@@ -116,7 +164,11 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthAddtaxformRoute: typeof AuthAddtaxformRoute
+  AuthDashboardRoute: typeof AuthDashboardRoute
   AuthLoginRoute: typeof AuthLoginRoute
+  AuthMemberRoute: typeof AuthMemberRoute
+  AuthVerifyRoute: typeof AuthVerifyRoute
+  AuthVerifyPanRoute: typeof AuthVerifyPanRoute
   AuthWelcomeRoute: typeof AuthWelcomeRoute
   SupportHelpRoute: typeof SupportHelpRoute
   CategoriesCategoryIdArticleIdRoute: typeof CategoriesCategoryIdArticleIdRoute
@@ -146,11 +198,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthWelcomeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth/verify-pan': {
+      id: '/auth/verify-pan'
+      path: '/auth/verify-pan'
+      fullPath: '/auth/verify-pan'
+      preLoaderRoute: typeof AuthVerifyPanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/verify': {
+      id: '/auth/verify'
+      path: '/auth/verify'
+      fullPath: '/auth/verify'
+      preLoaderRoute: typeof AuthVerifyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/member': {
+      id: '/auth/member'
+      path: '/auth/member'
+      fullPath: '/auth/member'
+      preLoaderRoute: typeof AuthMemberRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/auth/login': {
       id: '/auth/login'
       path: '/auth/login'
       fullPath: '/auth/login'
       preLoaderRoute: typeof AuthLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/dashboard': {
+      id: '/auth/dashboard'
+      path: '/auth/dashboard'
+      fullPath: '/auth/dashboard'
+      preLoaderRoute: typeof AuthDashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth/addtaxform': {
@@ -180,7 +260,11 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthAddtaxformRoute: AuthAddtaxformRoute,
+  AuthDashboardRoute: AuthDashboardRoute,
   AuthLoginRoute: AuthLoginRoute,
+  AuthMemberRoute: AuthMemberRoute,
+  AuthVerifyRoute: AuthVerifyRoute,
+  AuthVerifyPanRoute: AuthVerifyPanRoute,
   AuthWelcomeRoute: AuthWelcomeRoute,
   SupportHelpRoute: SupportHelpRoute,
   CategoriesCategoryIdArticleIdRoute: CategoriesCategoryIdArticleIdRoute,

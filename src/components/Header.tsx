@@ -9,9 +9,9 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
           <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-sm">IT</span>
+            <img src="/images/taxyaarLogo.png" alt="TaxYaar Logo"  />
           </div>
-          <span className="font-semibold text-foreground hidden sm:inline">myITreturn Help Center</span>
+          <span className="font-semibold text-2xl text-foreground hidden sm:inline">TaxYaar</span>
         </Link>
 
         <nav className="flex items-center gap-4">
@@ -24,8 +24,8 @@ export default function Header() {
 
        
 
-          <Button variant="outline" size="sm" asChild>
-            <Link to="/auth/login">Sign In</Link>
+          <Button variant="outline" size="lg" asChild className="bg-blue-400 text-blue-100 flex items-center hover:bg-blue-500">
+            <Link to="/auth/login">Log In</Link>
           </Button>
         </nav>
       </div>
